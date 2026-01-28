@@ -1,0 +1,32 @@
+# Credentials
+*.json
+*.env
+.env*
+credentials/
+secrets/
+
+# Data
+data/
+*.parquet
+*.csv
+*.xlsx
+*.duckdb
+*.db
+
+# Python
+etl_env/
+venv/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+utils/bootstrap.py
+utils/personal_notes.txt
