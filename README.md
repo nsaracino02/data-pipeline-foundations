@@ -51,7 +51,7 @@ This is a learning project that demonstrates:
 │  collections_strategies.parquet                              │
 │  arcus_payments_raw.parquet                                  │
 │  dim_calendar.parquet                                        │
-│  ... (15+ parquet files)                                     │
+│  ... (10+ parquet files)                                     │
 └──────────────────────┬──────────────────────────────────────┘
                        │
                        ▼
@@ -69,7 +69,7 @@ This is a learning project that demonstrates:
 │  fact_collections_strategies                                 │
 │  dim_calendar                                                │
 │  analytics_arcus_payments                                    │
-│  ... (15+ tables)                                            │
+│  ... (10+ tables)                                            │
 └──────────────────────┬──────────────────────────────────────┘
                        │
                        ▼
