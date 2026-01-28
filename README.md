@@ -41,7 +41,7 @@ This is a learning project that demonstrates:
 │  extract_collections_strategies.py                           │
 │  extract_manual_arcus_*.py                                   │
 │  extract_growth_data.py                                      │
-│  ... (15+ extraction scripts)                                │
+│  ... (10+ extraction scripts)                                │
 └──────────────────────┬──────────────────────────────────────┘
                        │
                        ▼
