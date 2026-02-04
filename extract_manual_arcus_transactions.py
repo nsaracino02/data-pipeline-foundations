@@ -83,18 +83,27 @@ if not all_dfs:
     print("⚠️ No new valid data to process.")
     exit()
 
-# Combine all data
-final_df = pd.concat(all_dfs, ignore_index=True)
+# Combine all new data
+new_df = pd.concat(all_dfs, ignore_index=True)
 
 # Convert from cents to currency units
-final_df["amount"] = final_df["amount"] / 100
+new_df["amount"] = new_df["amount"] / 100
 
-final_df['date'] = pd.to_datetime(final_df['date'], utc=True)
+new_df['date'] = pd.to_datetime(new_df['date'], utc=True)
 
-# Save to Parquet
+# Append to existing parquet file if it exists
 output_parquet.parent.mkdir(parents=True, exist_ok=True)
+
+if output_parquet.exists():
+    existing_df = pd.read_parquet(output_parquet)
+    final_df = pd.concat([existing_df, new_df], ignore_index=True)
+    print(f"📎 Appending {len(new_df)} new rows to {len(existing_df)} existing rows")
+else:
+    final_df = new_df
+    print(f"📄 Creating new file with {len(new_df)} rows")
+
 final_df.to_parquet(output_parquet, index=False)
-print(f"✅ Data exported to {output_parquet}")
+print(f"✅ Data exported to {output_parquet} (total: {len(final_df)} rows)")
 
 # Update log with folder IDs
 with open(processed_log, "a") as f:
